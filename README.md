@@ -23,7 +23,6 @@
 - **멀티모달 학습**: 이미지(ResNet)와 텍스트(BERT) 임베딩을 결합한 contrastive learning
 - **다양한 공정성 개선 방법론**: 여러 baseline 및 제안 방법 비교
 - **공정성 메트릭**: PQD, DPM, EOM 등 다양한 공정성 지표 계산
-- **Grad-CAM 시각화**: 모델의 의사결정 과정 시각화
 
 ## 데이터셋
 
@@ -159,9 +158,7 @@ skin_cancer_fairness/
 ├── *_train.py             # 학습 로직
 ├── *_run.py               # 실행 스크립트
 ├── fairness_metric.py     # 공정성 메트릭 계산
-├── preprocessing_*.py     # 데이터 전처리
-└── results/               # 실험 결과
-    └── grad_cam_results/  # Grad-CAM 시각화 결과
+└── preprocessing_*.py     # 데이터 전처리
 ```
 
 ## 실험 결과
@@ -170,8 +167,6 @@ skin_cancer_fairness/
 - 전체 정확도 (acc_avg)
 - 그룹별 정확도 (acc_per_type)
 - PQD, DPM, EOM 공정성 메트릭
-
-결과는 `runs/` 디렉토리에 저장되며, Grad-CAM 시각화 결과는 `results/grad_cam_results/`에 저장됩니다.
 
 ## 참고사항
 
