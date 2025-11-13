@@ -1,0 +1,44 @@
+batch_size: 32
+epochs: 1000
+learning_rate: 0.0001
+weight_decay: 1e-4
+T_0: 2
+T_mult: 2
+eta_max: 0.0001
+T_up: 1
+gamma: 1
+fp16_precision: False
+truncation: True
+# pretrained: True
+classes: 6
+fitz_classes: 4
+
+train_csv: '/dshome/ddualab/jiwon/skin_cancer_fairness/data/in_m_train_df.csv' # 다중분류 : f_m_train_df.csv / 이진분류 f_b_test_df.csv
+test_csv: '/dshome/ddualab/jiwon/skin_cancer_fairness/data/in_m_test_df.csv' # 다중분류: f_m_test_df.csv  / 이진분류 f_b_test_df.csv
+
+model:
+  out_dim: 512
+  res_base_model: 'resnet50'
+  bert_base_model: 'emilyalsentzer/Bio_ClinicalBERT'  
+  freeze_layers: [0,1,2,3,4,5,6,7,8,9,10,11]
+  do_lower_case: False
+  
+dataset:
+  s: 1
+  input_shape: (224,224,3)
+  num_workers: 1 
+  csv_file: '/dshome/ddualab/jiwon/skin_cancer_fairness/data/f_m_train_df.csv'
+  img_root_dir: '/dshome/ddualab/jiwon/skin_cancer_fairness/data/skin_cancer_images'
+  img_path_col: 'img_id' 
+  text_root_dir: '/dshome/ddualab/jiwon/skin_cancer_fairness/data/f_m_train_df.csv'
+  text_col1: 'lesion_description'
+  text_col2: 'fitzpatrick_description'
+  label_col: 'label'
+  fitz_scale_col : 'fitzpatrick_scale'
+
+
+cl_loss:
+  temperature: 0.1
+  use_cosine_similarity: True
+  alpha_weight: 0.75
+

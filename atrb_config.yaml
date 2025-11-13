@@ -1,0 +1,29 @@
+batch_size: 32
+epochs: 100
+learning_rate: 0.0001
+weight_decay: 1e-4
+T_0: 2
+T_mult: 2
+eta_max: 0.0001
+T_up: 1
+gamma: 1     
+truncation: True
+# pretrained: True
+classes: 2
+fitz_classes: 4
+
+pad_img_root_dir: '/dshome/ddualab/jiwon/skin_cancer_fairness/data/PAD_UFES_20_images'
+fitz17_img_root_dir: '/dshome/ddualab/jiwon/skin_cancer_fairness/data/fitzpatrick17_images'
+
+train_csv: '/dshome/ddualab/jiwon/skin_cancer_fairness/data/in_b_train_df.csv' 
+test_csv: '/dshome/ddualab/jiwon/skin_cancer_fairness/data/in_b_fitz17_test_only_df.csv'
+
+dataset:
+  s: 1
+  input_shape: (224,224,3)
+  num_workers: 1
+  # img_root_dir: '/dshome/ddualab/jiwon/skin_cancer_fairness/data/skin_cancer_images'
+  img_path_col: 'img_id'
+  label_col: 'label'
+  fitz_scale_col: 'fitzpatrick_scale'
+
